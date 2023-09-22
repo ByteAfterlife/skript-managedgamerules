@@ -10,8 +10,34 @@ on command "/gamerule sendCommandFeedback false":
         send "[&aGamerulePlus&r] &cYou do not have permission to change that gamerule!"
 
 
+on command "/minecraft:gamerule sendCommandFeedback false":
+    if player has permission "admin.gamerule.commandfeedback":
+        send "[&aGamerulePlus&r] Disabled command feedback"
+        send "[&aGamerulePlus&r] &c%player% disabled command feedback" to all players where [input has permission "admin.gamerule.commandfeedback"]
+    else if sender is console:
+        send "[&aGamerulePlus&r] Disabled command feedback"
+        send "[&aGamerulePlus&r] &cConsole disabled command feedback" to all players where [input has permission "admin.gamerule.commandfeedback"]
+    else:
+        cancel event
+        send "[&aGamerulePlus&r] &cYou do not have permission to change that gamerule!"
+
+
 
 on command "/gamerule commandBlockOutput false":
+    if player has permission "admin.gamerule.commandblockoutput":
+        send "[&aGamerulePlus&r] &c%player% disabled command block output" to all players where [input has permission "admin.gamerule.commandblockoutput"]
+    else if sender is console:
+        send "[&aGamerulePlus&r] Disabled command feedback"
+        send "[&aGamerulePlus&r] &cConsole disabled command block output" to all players where [input has permission "admin.gamerule.commandblockoutput"]
+    else:
+        cancel event
+        send "[&aGamerulePlus&r] &cYou do not have permission to change that gamerule!"
+
+
+
+
+
+on command "/minecraft:gamerule commandBlockOutput false":
     if player has permission "admin.gamerule.commandblockoutput":
         send "[&aGamerulePlus&r] &c%player% disabled command block output" to all players where [input has permission "admin.gamerule.commandblockoutput"]
     else if sender is console:
